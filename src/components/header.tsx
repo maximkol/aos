@@ -15,29 +15,26 @@ export default function Header(){
                 <Link className={styles.navLink} href="about">О проекте</Link>
                 <Link className={styles.navLink} href="create">Создать турнир</Link>
             </nav>
-            <div>
+            <div className={styles.signWrap}>
                 {!session && (
-                    <>
-                    <a
-                        href={`/api/auth/signin`}
-                        className={styles.buttonPrimary}
+                    <div>
+                    <a href="/api/auth/signin"
                         onClick={(e) => {
-                        e.preventDefault()
-                        signIn()
+                            e.preventDefault()
+                            signIn()
                         }}
-                    >
-                        Вход
+                    > Вход
                     </a>
-                    </>
+                    <Link className={styles.navLink} href="signup">Регистрация</Link>
+                    </div>
                 )}
                 {session?.user && (
                     <>
-                    <span className={styles.signedInText}>
+                    <span className={styles.user}>
                         <strong>{session.user.email ?? session.user.name}</strong>
                     </span>
                     <a
                         href={`/api/auth/signout`}
-                        className={styles.button}
                         onClick={(e) => {
                         e.preventDefault()
                         signOut()

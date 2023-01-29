@@ -12,9 +12,11 @@ import data from '@/db/data';
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
 export const authOptions: NextAuthOptions = {
+  secret: process.env.AUTH_SECRET,
   // https://next-auth.js.org/configuration/providers/oauth
   providers: [
     CredentialsProvider({
+      
       // The name to display on the sign in form (e.g. "Sign in with...")
       name: "credentials",
 
