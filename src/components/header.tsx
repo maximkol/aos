@@ -18,13 +18,13 @@ export default function Header(){
             <div className={styles.signWrap}>
                 {!session && (
                     <div>
-                    <a href="/api/auth/signin"
+                    <Link href="/api/auth/signin"
                         onClick={(e) => {
                             e.preventDefault()
                             signIn()
                         }}
                     > Вход
-                    </a>
+                    </Link>
                     <Link className={styles.navLink} href="signup">Регистрация</Link>
                     </div>
                 )}
@@ -33,7 +33,7 @@ export default function Header(){
                     <span className={styles.user}>
                         <strong>{session.user.email ?? session.user.name}</strong>
                     </span>
-                    <a
+                    <Link
                         href={`/api/auth/signout`}
                         onClick={(e) => {
                         e.preventDefault()
@@ -41,7 +41,7 @@ export default function Header(){
                         }}
                     >
                         Выход
-                    </a>
+                    </Link>
                     </>
                 )}
             </div>
